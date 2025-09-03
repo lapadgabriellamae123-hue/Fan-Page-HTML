@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Piece Fan Page</title>
-    
-    <!--
-      You can add your own custom fonts here.
-      If you want to use a Google Font, find the font you like
-      and copy the provided <link> tags.
-    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -22,9 +16,7 @@
             margin: 0;
             padding: 0;
             background-color: #1a1a1a;
-            overflow-x: hidden;
-            
-            /* You can change this background image URL. */
+            overflow-x: hidden;        
             background-image: url('one-piece-desktop-all-characters-npnolrp44bpmttxh.jpg');
             background-size: cover;
             background-attachment: fixed;
@@ -51,7 +43,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            height: 70px; /* Set a fixed height for the header */
+            height: 70px;
         }
         .logo-image {
             height: 60px;
@@ -60,9 +52,9 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 0; /* Remove gap for dot separators */
+            gap: 0; 
             text-transform: uppercase;
-            flex-grow: 1; /* Allows nav to take up available space */
+            flex-grow: 1; 
             justify-content: center;
             padding: 0 2rem;
         }
@@ -186,7 +178,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none; /* Remove underline from the link */
+            text-decoration: none; 
         }
         .watch-trailer-btn:hover {
             background-color: #e63e00;
@@ -436,7 +428,6 @@
 
     <!-- Header & Navigation -->
     <header class="header">
-        <!-- Change the 'src' attribute to the URL of your own logo image. -->
         <img src="One-Piece-Logo.png" alt="One Piece Logo" class="logo-image">
         <nav>
             <ul class="nav-menu">
@@ -474,9 +465,6 @@
             <div class="carousel-wrapper">
                 <button class="scroll-btn left-btn" onclick="scrollCarousel('pirates-carousel', -300)">&#10094;</button>
                 <div class="character-carousel" id="pirates-carousel">
-                    <!--
-                      The following images have been updated from placeholders.
-                    -->
                     <div class="character-card" data-title="Monkey D. Luffy" data-description="Monkey D. Luffy, also known as &quot;Straw Hat Luffy&quot;, is the founder and captain of the Straw Hat Pirates. His lifelong dream is to become the Pirate King by finding the legendary treasure left by the late Gol D. Roger. He has the power of the Gum-Gum Fruit, allowing him to stretch his body like rubber.">
                         <img src="luffy_wanted_poster_by_mrmorris12_dgzczh7-414w-2x.jpg" alt="Monkey D. Luffy">
                         <div class="card-content">
@@ -559,9 +547,6 @@
             <h2>Devil Fruits</h2>
             <p>Devil Fruits are mysterious, distinct fruits scattered throughout the world, which grant a person who eats one a special power or ability.</p>
             <div class="fruit-grid">
-                <!--
-                  The following images have been updated from placeholders.
-                -->
                 <div class="fruit-item" data-title="Gum-Gum Fruit" data-description="The Gum-Gum Fruit is a Paramecia-type Devil Fruit that grants the user's body the properties of rubber, allowing them to stretch and contort their body.">
                     <img src="one-piece-replica-gum-gum-fruit.jpg" alt="Gum-Gum Fruit">
                     <div class="fruit-info">
@@ -660,3 +645,4 @@
     </script>
 </body>
 </html>
+
