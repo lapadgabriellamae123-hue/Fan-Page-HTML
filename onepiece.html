@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Fan Page</title>
+    
+    <!--
+      You can add your own custom fonts here.
+      If you want to use a Google Font, find the font you like
+      and copy the provided <link> tags.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General body and typography styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            overflow-x: hidden;
+            
+            /* You can change this background image URL. */
+            background-image: url('one-piece-desktop-all-characters-npnolrp44bpmttxh.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* --- Header and Navigation --- */
+        .header {
+            background-color: #000;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 70px; /* Set a fixed height for the header */
+        }
+        .logo-image {
+            height: 60px;
+            margin-left: 2rem;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0; /* Remove gap for dot separators */
+            text-transform: uppercase;
+            flex-grow: 1; /* Allows nav to take up available space */
+            justify-content: center;
+            padding: 0 2rem;
+        }
+        .nav-menu li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li:not(:last-child)::after {
+            content: '•';
+            color: #fff;
+            margin: 0 1rem;
+        }
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ff4500;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+        .search-bar {
+            margin-right: 2rem;
+        }
+        .search-bar input {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+
+        /* --- Main Content Section --- */
+        .main-section {
+            background-image: url('https://raw.githubusercontent.com/jerrythecoder/gemini-pro-image-assets/main/one-piece-group.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 2rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+        .main-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        .main-content-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            gap: 4rem;
+        }
+        .main-image-container {
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .main-info {
+            max-width: 600px;
+            text-align: left;
+            padding: 2rem;
+        }
+        .main-info h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        .main-info h1 {
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .main-info p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .watch-trailer-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none; /* Remove underline from the link */
+        }
+        .watch-trailer-btn:hover {
+            background-color: #e63e00;
+        }
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 10px solid #fff;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        /* --- Character Cards Section --- */
+        .character-section {
+            padding: 4rem 0;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            margin-top: 2rem;
+        }
+        .character-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: #ff4500;
+            margin-bottom: 2rem;
+        }
+        .character-carousel {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 1rem 0;
+            gap: 1.5rem;
+        }
+        .character-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .character-card {
+            flex-shrink: 0;
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            scroll-snap-align: start;
+            cursor: pointer;
+        }
+        .character-card:hover {
+            transform: translateY(-10px);
+        }
+        .character-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1rem;
+            text-align: center;
+        }
+        .card-content h3 {
+            margin: 0 0 0.5rem;
+            color: #ff4500;
+        }
+        .card-content p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Scroll Buttons --- */
+        .carousel-wrapper {
+            position: relative;
+        }
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .scroll-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .left-btn { left: 20px; }
+        .right-btn { right: 20px; }
+
+        /* --- Devil Fruit Section --- */
+        .devil-fruit-section {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+        .devil-fruit-section h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: #ff4500;
+            margin-bottom: 2rem;
+        }
+        .fruit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .fruit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+        .fruit-item img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        .fruit-item h3 {
+            margin: 0;
+            color: #ff4500;
+        }
+
+        /* --- Description Modal --- */
+        .description-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #333;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff4500;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #ff4500;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #ff4500;
+        }
+        .modal-content p {
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #000;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+            }
+            .nav-menu {
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            .nav-menu li:not(:last-child)::after {
+                content: ''; /* Remove dot on mobile */
+                margin: 0;
+            }
+            .main-section {
+                padding: 3rem 1rem;
+            }
+            .character-card {
+                width: 200px;
+            }
+            .scroll-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+            .search-bar {
+                width: 100%;
+                margin: 1rem 0;
+                display: flex;
+                justify-content: center;
+            }
+            .search-bar input {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <!-- Change the 'src' attribute to the URL of your own logo image. -->
+        <img src="One-Piece-Logo.png" alt="One Piece Logo" class="logo-image">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pirates-section">Characters</a></li>
+                <li><a href="#devil-fruit-section">Devil Fruits</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+    </header>
+
+    <!-- Main Section with Story Overview -->
+    <main class="main-section" id="home">
+        <div class="main-content-wrapper">
+            <div class="main-image-container">
+                <img src="633ff1157e3fbc25557517c8-one-piece-poster-japanese-anime-posters.jpg" alt="One Piece Poster" class="main-image">
+            </div>
+            <div class="main-info">
+                <h2>1142 EPISODES AVAILABLE</h2>
+                <h1>One Piece</h1>
+                <p>Monkey D. Luffy refuses to let anyone or anything stand in the way of his quest to become king of all pirates. With a course charted for the treacherous waters of the Grand Line and beyond, this is one captain who'll never give up until he's claimed the greatest treasure on Earth: the Legendary One Piece!</p>
+                <a href="https://www.youtube.com/watch?v=MCb13lbVGE0" target="_blank" rel="noopener noreferrer" class="watch-trailer-btn">
+                    <span class="play-icon"></span>
+                    WATCH TRAILER
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- Pirates Section with Horizontal Scroll -->
+    <section class="character-section" id="pirates-section">
+        <div class="container">
+            <h2>StrawHat Pirates</h2>
+            <div class="carousel-wrapper">
+                <button class="scroll-btn left-btn" onclick="scrollCarousel('pirates-carousel', -300)">&#10094;</button>
+                <div class="character-carousel" id="pirates-carousel">
+                    <!--
+                      The following images have been updated from placeholders.
+                    -->
+                    <div class="character-card" data-title="Monkey D. Luffy" data-description="Monkey D. Luffy, also known as &quot;Straw Hat Luffy&quot;, is the founder and captain of the Straw Hat Pirates. His lifelong dream is to become the Pirate King by finding the legendary treasure left by the late Gol D. Roger. He has the power of the Gum-Gum Fruit, allowing him to stretch his body like rubber.">
+                        <img src="luffy_wanted_poster_by_mrmorris12_dgzczh7-414w-2x.jpg" alt="Monkey D. Luffy">
+                        <div class="card-content">
+                            <h3>Monkey D. Luffy</h3>
+                            <p>Straw Hat Captain</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Roronoa Zoro" data-description="Roronoa Zoro, known as &quot;Pirate Hunter&quot; Zoro, is the combatant of the Straw Hat Pirates. He is a master swordsman who uses the unique Three Sword Style. His goal is to become the world's greatest swordsman.">
+                        <img src="zoro_wanted_poster_by_mrmorris12_dgzd1qb-414w-2x.jpg" alt="Roronoa Zoro">
+                        <div class="card-content">
+                            <h3>Roronoa Zoro</h3>
+                            <p>Swordsman</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Nami" data-description="Nami, &quot;Cat Burglar&quot; Nami, is the navigator of the Straw Hat Pirates. She is an expert cartographer and meteorologist who can predict changes in the weather. Her dream is to draw a complete map of the entire world.">
+                        <img src="nami_wanted_poster_by_mrmorris12_dgzd2rb-414w-2x.jpg" alt="Nami">
+                        <div class="card-content">
+                            <h3>Nami</h3>
+                            <p>Navigator</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Vinsmoke Sanji" data-description="Vinsmoke Sanji, or &quot;Black Leg&quot; Sanji, is the cook of the Straw Hat Pirates. He uses a unique fighting style that focuses solely on his powerful leg kicks to avoid damaging his hands, which are meant for cooking. His dream is to find the All Blue, a mythical sea that contains all the fish from the four seas.">
+                        <img src="sanji_wanted_poster_by_mrmorris12_dgzd3iu-350t-2x.jpg" alt="Vinsmoke Sanji">
+                        <div class="card-content">
+                            <h3>Vinsmoke Sanji</h3>
+                            <p>Chef</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Usopp" data-description="Usopp, known as &quot;God Usopp&quot;, is the sniper of the Straw Hat Pirates. He is a talented inventor, artist, and a masterful marksman. His dream is to become a brave warrior of the sea.">
+                        <img src="usopp_wanted_poster_by_mrmorris12_dgzd35p-350t-2x.jpg" alt="Usopp">
+                        <div class="card-content">
+                            <h3>Usopp</h3>
+                            <p>Sniper</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Nico Robin" data-description="Nico Robin, the &quot;Devil Child&quot;, is the archaeologist of the Straw Hat Pirates. She has the power of the Hana Hana no Mi (Flower-Flower Fruit), which allows her to sprout body parts on any surface. Her dream is to find the Rio Poneglyph and learn the true history of the world.">
+                        <img src="robin_wanted_poster_by_mrmorris12_dgzd489-350t-2x.jpg" alt="Nico Robin">
+                        <div class="card-content">
+                            <h3>Nico Robin</h3>
+                            <p>Archaeologist</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Franky" data-description="Franky, &quot;Cyborg&quot; Franky, is the shipwright of the Straw Hat Pirates. He is a cyborg who has built a number of useful tools and machines. His dream is to build a ship that can travel to the end of the Grand Line.">
+                        <img src="franky_wanted_poster_by_mrmorris12_dgzd5bq-350t-2x.jpg" alt="Franky">
+                        <div class="card-content">
+                            <h3>Franky</h3>
+                            <p>Shipwright</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Brook" data-description="Brook, &quot;Soul King&quot; Brook, is the musician of the Straw Hat Pirates. He ate the Yomi Yomi no Mi (Revive-Revive Fruit), which allows him to return to life after death. His dream is to reunite with his friend Laboon, a whale he promised to return to years ago.">
+                        <img src="brook_wanted_poster_by_mrmorris12_dgzd5y7-350t-2x.jpg" alt="Brook">
+                        <div class="card-content">
+                            <h3>Brook</h3>
+                            <p>Musician</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Tony Tony Chopper" data-description="Tony Tony Chopper, the doctor of the Straw Hat Pirates, is a blue-nosed reindeer who ate the Human-Human Fruit, allowing him to transform into various forms. His dream is to become a doctor who can cure any disease.">
+                        <img src="chopper_wanted_poster_by_mrmorris12_dgzd3xg-350t-2x.jpg" alt="Tony Tony Chopper">
+                        <div class="card-content">
+                            <h3>Tony Tony Chopper</h3>
+                            <p>Doctor</p>
+                        </div>
+                    </div>
+                    <div class="character-card" data-title="Jinbe" data-description="Jinbe, also known as &quot;Knight of the Sea&quot;, is a former Warlord of the Sea and the helmsman of the Straw Hat Pirates. He is a master of Fish-Man Karate. His dream is to fulfill his duties as a Fish-Man and a member of the Straw Hat crew.">
+                        <img src="jinbe_wanted_poster_by_mrmorris12_dgzdan4-350t-2x.jpg" alt="Jinbe">
+                        <div class="card-content">
+                            <h3>Jinbe</h3>
+                            <p>Helmsman</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll-btn right-btn" onclick="scrollCarousel('pirates-carousel', 300)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devil Fruits Section -->
+    <section class="devil-fruit-section" id="devil-fruit-section">
+        <div class="container">
+            <h2>Devil Fruits</h2>
+            <p>Devil Fruits are mysterious, distinct fruits scattered throughout the world, which grant a person who eats one a special power or ability.</p>
+            <div class="fruit-grid">
+                <!--
+                  The following images have been updated from placeholders.
+                -->
+                <div class="fruit-item" data-title="Gum-Gum Fruit" data-description="The Gum-Gum Fruit is a Paramecia-type Devil Fruit that grants the user's body the properties of rubber, allowing them to stretch and contort their body.">
+                    <img src="one-piece-replica-gum-gum-fruit.jpg" alt="Gum-Gum Fruit">
+                    <div class="fruit-info">
+                        <h3>Gum-Gum Fruit</h3>
+                        <p>Paramecia Type</p>
+                    </div>
+                </div>
+                <div class="fruit-item" data-title="Chop-Chop Fruit" data-description="The Chop-Chop Fruit is a Paramecia-type Devil Fruit that allows the user to split their body into pieces and control them independently.">
+                    <img src="buggy_s_fruit____one_piece__by_onepieceakumanomi_dfuo80c-fullview.jpg" alt="Chop-Chop Fruit">
+                    <div class="fruit-info">
+                        <h3>Chop-Chop Fruit</h3>
+                        <p>Paramecia Type</p>
+                    </div>
+                </div>
+                <div class="fruit-item" data-title="Flame-Flame Fruit" data-description="The Flame-Flame Fruit is a Logia-type Devil Fruit that allows the user to create, control, and transform into fire at will.">
+                    <img src="one-piece-replica-flame-flame-fruit.jpg" alt="Flame-Flame Fruit">
+                    <div class="fruit-info">
+                        <h3>Flame-Flame Fruit</h3>
+                        <p>Logia Type</p>
+                    </div>
+                </div>
+                <div class="fruit-item" data-title="Ice-Ice Fruit" data-description="The Ice-Ice Fruit is a Logia-type Devil Fruit that allows the user to create, control, and transform into ice at will.">
+                    <img src="6199803_devil-fruit-hie-hie-no-mi.jpg" alt="Ice-Ice Fruit">
+                    <div class="fruit-info">
+                        <h3>Ice-Ice Fruit</h3>
+                        <p>Logia Type</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Description Modal -->
+    <div id="description-modal" class="description-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDescription()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 One Piece Fan Page. All rights reserved. One Piece is created by Eiichiro Oda.</p>
+            <p>Fan Page by Gabriella Mae Lapad from DS3A </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for horizontal carousel scrolling
+        function scrollCarousel(id, amount) {
+            const carousel = document.getElementById(id);
+            if (carousel) {
+                carousel.scrollBy({
+                    left: amount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // JavaScript for showing and hiding the description modal
+        function showDescription(title, description) {
+            const modal = document.getElementById('description-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modal.style.display = 'flex';
+        }
+
+        function closeDescription() {
+            const modal = document.getElementById('description-modal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of the content
+        window.onclick = function(event) {
+            const modal = document.getElementById('description-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Attach event listeners to all cards for a more robust click handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.character-card, .fruit-item');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.dataset.title;
+                    const description = card.dataset.description;
+                    showDescription(title, description);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
