@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey D. Luffy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body and typography styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            overflow-x: hidden;      
+            background-image: url('One piece/jinbee.gif');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* Header and navigation styles */
+        .header {
+            background-color: #00000052;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+        }
+        .logo-image {
+            height: 60px;
+            margin-left: 2rem;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0;  
+            text-transform: uppercase;
+            flex-grow: 1;  
+            justify-content: center;
+            padding: 0 2rem;
+        }
+        .nav-menu li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li:not(:last-child)::after {
+            content: '•';
+            color: #fff;
+            margin: 0 1rem;
+        }
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ff4500;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+        .search-bar {
+            margin-right: 2rem;
+        }
+        .search-bar input {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+        /* NEW Stylish description box style and layout */
+        .pirate-description-box {
+            background-color: rgba(100, 68, 34, 0.038);
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(255, 177, 135, 0.441);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(106, 68, 31, 0.06), 0 4px 20px rgba(0, 0, 0, 0.222);
+            padding: 3rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+        }
+
+        .pirate-description-box h1 {
+            color: #ff4500;
+            text-shadow: 1px 1px 5px #00000000;
+            margin-bottom: 1rem;
+            text-align: center; /* Center the title above the layout */
+        }
+
+        .content-layout {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .content-layout img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-layout p {
+            line-height: 1.8;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        /* Detail page styles (MODIFIED) */
+        .detail-content {
+            padding: 4rem 2rem;
+            background-color: rgba(10, 10, 10, 0.171);
+            /* Removed min-height to allow content to naturally size the page */
+            backdrop-filter: blur(3px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .detail-content p {
+            max-width: 800px;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }    
+        .back-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-top: 2rem; /* Add top margin to separate it from the content */
+        }
+        .back-btn:hover {
+            background-color: #e63e00;
+        }
+
+        /* Footer styles */
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(10, 10, 10, 0.412);
+            color: #ccc;
+        }
+        .footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+            }
+            .nav-menu {
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            .nav-menu li:not(:last-child)::after {
+                content: '';
+                margin: 0;
+            }
+            .search-bar {
+                width: 100%;
+                margin: 1rem 0;
+                display: flex;
+                justify-content: center;
+            }
+            .search-bar input {
+                width: 80%;
+            }
+            .content-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+            .content-layout p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="One piece/One-Piece-Logo.png" alt="One Piece Logo" class="logo-image">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="onepiece.html#home">Home</a></li>
+                <li><a href="onepiece.html#pirates-section">Characters</a></li>
+                <li><a href="onepiece.html#devil-fruit-section">Devil Fruits</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+    </header>
+    <main class="detail-content">
+        <h1 style="color: #ff4500;">Jinbe</h1>
+            <div class="content-layout">
+        <img src="One piece/jinbe_wanted_poster_by_mrmorris12_dgzdan4-350t-2x.jpg" alt="Jinbe">
+        <section class="pirate-description-box">
+            <p style="font-size:20px">Jinbe, also known as &quot;Knight of the Sea&quot;, is a former Warlord of the Sea and the helmsman of the Straw Hat Pirates. He is a master of Fish-Man Karate. His dream is to fulfill his duties as a Fish-Man and a member of the Straw Hat crew.</p>
+        </div>
+        <a href="onepiece.html" class="back-btn">Back to Main Page</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 One Piece Fan Page. All rights reserved. One Piece is created by Eiichiro Oda.</p>
+        </div>
+    </footer>
+</body>
+</html>
